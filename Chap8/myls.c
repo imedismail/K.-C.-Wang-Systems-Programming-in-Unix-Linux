@@ -71,7 +71,6 @@ int ls_dir(char *dirname){
 	  	printf("can't open directory %s\n", dirname);
 	    	exit(1);
 	}else{
-		
 		while((dir_ent_p = readdir(dir_p)) != NULL){
 			ls_file(dir_ent_p->d_name);
 		}
@@ -81,8 +80,6 @@ int ls_dir(char *dirname){
 
 int main(int argc, char *argv[])
 {
-
-	
 	struct stat mystat, *sp = &mystat;
 	int r;
 	char *filename, path[1024], cwd[256];
@@ -97,7 +94,6 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	strcpy(path, filename);
-
 	if (path[0] !='/' && path[0] !='~'){ // path[0] != "/"  filename is relative : get CWD path
 		getcwd(cwd, 256);
 		strcpy(path, cwd); strcat(path, "/"); strcat(path,filename);	
