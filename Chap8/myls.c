@@ -65,7 +65,7 @@ int ls_file(char *fname)
 }
 int ls_dir(char *dirname){
 	DIR 		*dir_p;     // directory pointer
-	struct dirent   *dir_ent_p; // directory entray pointer
+	struct dirent   *dir_ent_p; // directory entry pointer
 	chdir(dirname); // changing the directory
 	if((dir_p = opendir(dirname)) == NULL){
 	  	printf("can't open directory %s\n", dirname);
@@ -99,7 +99,6 @@ int main(int argc, char *argv[])
 		strcpy(path, cwd); strcat(path, "/"); strcat(path,filename);	
 	}
 	if (S_ISDIR(sp->st_mode)){
-	
 		ls_dir(path);
 	}
 	else{
